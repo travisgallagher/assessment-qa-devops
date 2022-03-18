@@ -17,9 +17,6 @@ var rollbar = new Rollbar({
 // record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
 
-// app.use(express.static(path.join(__dirname, "../public"))); 
-// app.use("/index.html", express.static(path.join(__dirname, "../index.css")))
-
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "/public"))
 }); 
@@ -36,8 +33,8 @@ app.get("/styles", function(req, res) {
     res.sendFile(path.join(path.join(__dirname, "/public/index.css")))
 }) 
 
-
-
+// same thing as above, but as middleware. middleware uses app. use instead of app.get
+// app.use("/styles", express.static(path.join(__dirname, `/public/index.css`)))
 
 app.get('/api/robots', (req, res) => {
     try {
