@@ -1,4 +1,4 @@
-const bots = [
+const botsArr = [
     {
         id: 0,
         name: 'The Hammer', 
@@ -166,4 +166,4 @@ const playerRecord = {
     losses: 0
 }
 
-module.exports = {bots, playerRecord}
+module.exports = {botsArr, playerRecord}

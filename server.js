@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const {bots, playerRecord} = require('./data')
+const {botsArr, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
 
 app.use(express.json())
