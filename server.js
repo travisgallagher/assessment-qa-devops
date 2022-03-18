@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const {botsArr, playerRecord} = require('./data')
+const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
 
 app.use(express.json())
@@ -42,7 +42,7 @@ app.get("/styles", function(req, res) {
 app.get('/api/robots', (req, res) => {
     try {
         rollbar.log("robots accessed")
-        res.status(200).send(botsArr)
+        res.status(200).send(bots)
     } catch (error) {
         rollbar.error("Error getting bots")
         console.log('ERROR GETTING BOTS', error)
@@ -88,7 +88,7 @@ app.post('/api/duel', (req, res) => {
             res.status(200).send('You lost!')
         } else {
             rollbar.log("Duel ran, you won")
-            playerRecord.losses++
+            playerRecord.wins++
             res.status(200).send('You won!')
         }
     } catch (error) {
